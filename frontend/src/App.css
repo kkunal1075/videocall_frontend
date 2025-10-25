@@ -1,0 +1,310 @@
+/* Design tokens */
+:root{
+  --bg-image: url("/backgroundnew.png");
+  --bg-color: #071422;
+  --panel: rgba(12,20,34,0.7);
+  --accent: #D97500;
+  --accent-2: #2b6cff;
+  --muted: #a9b3c7;
+  --text: #ffffff;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 14px;
+  --gap-lg: 3rem;
+  --max-width: 1200px;
+}
+
+/* Page layout */
+body{
+  margin:0;
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, rgba(7,20,34,1) 0%, rgba(10,18,30,1) 100%), var(--bg-color);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Landing page wrapper */
+.landingPageContainer {
+  width: 100%;
+  min-height: 100vh;
+  background-image: var(--bg-image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
+}
+
+/* Constrain main content and center */
+.landingMainContainer,
+.navBar,
+.meetContainer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  width: calc(100% - 2rem);
+}
+
+/* Top navigation */
+.landingPageContainer nav {
+  padding: 1.2rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.25), rgba(0,0,0,0.08));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  backdrop-filter: blur(4px);
+}
+
+.landingPageContainer nav h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.landingPageContainer nav .navlist {
+  display: flex;
+  gap: 1.2rem;
+  align-items:center;
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+
+.navlist a, .navlist button {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all .16s ease;
+}
+.navlist a:hover, .navlist button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.03);
+  border-color: rgba(255,255,255,0.04);
+}
+
+/* Landing main */
+.landingMainContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.2rem 1rem;
+  gap: var(--gap-lg);
+}
+
+/* Left column */
+.landingMainContainer > div:first-child {
+  max-width: 54%;
+  font-size: 1.9rem;
+  line-height: 1.15;
+  color: var(--text);
+}
+.landingMainContainer .cta {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items:center;
+  gap: 0.9rem;
+}
+.landingMainContainer .cta .btnPrimary {
+  background: linear-gradient(90deg,var(--accent-2), #5c8bff);
+  color: white;
+  padding: .85rem 1.1rem;
+  border-radius: 12px;
+  font-weight: 700;
+  box-shadow: 0 8px 30px rgba(43,108,255,0.12);
+  border: none;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.landingMainContainer .cta .btnPrimary:hover{ transform: translateY(-3px); }
+
+/* Right column image */
+.landingMainContainer > div:nth-child(2) img {
+  height: 60vh;
+  width: auto;
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(2,6,23,0.6);
+  object-fit: cover;
+}
+
+/* Meet container (used elsewhere) */
+.meetContainer {
+  display: flex;
+  padding: 1.6rem;
+  gap: 6%;
+  align-items:center;
+  justify-content: center;
+}
+
+/* Panels used inside meet pages */
+.leftPanel, .rightPanel {
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.leftPanel { flex: 1 1 40%; }
+.rightPanel { flex: 1 1 40%; }
+
+.rightPanel > img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+/* Footer tiny */
+footer {
+  padding: 1.6rem;
+  text-align:center;
+  color: var(--muted);
+  font-size: .9rem;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), transparent);
+}
+
+/* Buttons - global polished styles */
+button,
+button[type="button"],
+button[type="submit"],
+.MuiButton-root,
+.MuiIconButton-root,
+.btnPrimary,
+.btnSecondary {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .14s ease, opacity .12s ease;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+}
+
+/* Hover / active */
+button:hover,
+.MuiButton-root:hover,
+.MuiIconButton-root:hover,
+.btnPrimary:hover,
+.btnSecondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(15, 35, 70, 0.18);
+}
+
+/* Focus accessibility */
+button:focus,
+.MuiButton-root:focus,
+.MuiIconButton-root:focus {
+  outline: 3px solid rgba(91,138,255,0.12);
+  outline-offset: 3px;
+  box-shadow: 0 6px 22px rgba(43,108,255,0.08);
+}
+
+/* Disabled */
+button:disabled,
+.MuiButton-root[disabled],
+.btnPrimary[disabled],
+.btnSecondary[disabled] {
+  opacity: 0.52;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Primary / Secondary variants (consistent) */
+.btnPrimary,
+.MuiButton-root.primary {
+  background: linear-gradient(90deg,var(--accent-2), #5c8bff);
+  color: #fff;
+  box-shadow: 0 8px 28px rgba(43,108,255,0.12);
+}
+
+.btnSecondary,
+.MuiButton-root.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Icon-only circular buttons */
+.iconBtn,
+.MuiIconButton-root {
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border-radius: 50%;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Danger / end call */
+.btnDanger,
+.MuiButton-root.danger {
+  background: linear-gradient(90deg,#ff6b6b,#ff3b3b);
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(255,59,59,0.12);
+}
+
+/* Cursor defaults for app */
+body, html {
+  cursor: default;
+}
+
+/* Utility helper to show pointer for clickable non-button elements */
+.clickable { cursor: pointer; }
+
+/* Responsive rules */
+@media (max-width: 1024px) {
+  :root{ --max-width: 900px; }
+  .landingMainContainer {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    gap: 1.6rem;
+    padding: 1.6rem 1rem;
+  }
+  .landingMainContainer > div:first-child { max-width: 100%; font-size: 1.5rem; }
+  .landingMainContainer > div:nth-child(2) img { height: 46vh; }
+  .navlist { gap: 0.9rem; }
+}
+
+@media (max-width: 720px) {
+  :root{ --max-width: 98%; }
+  .landingPageContainer nav {
+    padding: 0.9rem 0.8rem;
+  }
+  .landingMainContainer > div:first-child { font-size: 1.2rem; }
+  .landingMainContainer > div:nth-child(2) img { height: 36vh; }
+  .navlist { display: none; } /* collapse nav, you can add a hamburger later */
+  .navBar { padding-inline: 12px; }
+  .landingMainContainer { padding-inline: 1rem; gap: 1rem; }
+  .meetContainer { flex-direction: column; gap: 1.2rem; }
+}
+
+/* Small polish: consistent spacing, subtle borders */
+* { box-sizing: border-box; }
+button { font-family: inherit; }
+input, textarea { font-family: inherit; }
+
+/* Accessibility: focus outlines */
+a:focus, button:focus, input:focus {
+  outline: 3px solid rgba(91,138,255,0.12);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Utility helpers */
+.u-center { display:flex; align-items:center; justify-content:center; }
+.u-small { font-size: .9rem; color: var(--muted); }
