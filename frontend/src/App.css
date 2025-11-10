@@ -91,11 +91,13 @@ body{
 
 /* Landing main */
 .landingMainContainer {
-  display: flex;
-  justify-content: space-between;
+ display: flex;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 2.2rem 1rem;
-  gap: var(--gap-lg);
+  gap: 2rem;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: none;
 }
 
 /* Left column */
